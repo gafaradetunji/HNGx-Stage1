@@ -47,11 +47,17 @@
         </div>
     </section>
     <script>
-        const time = (new Date().getUTCHours() + 1) + ":" + new Date().getUTCMinutes() + ":" + new Date().getUTCSeconds() + ":" + new Date().getUTCSeconds()
+        const time = (new Date().getUTCHours() + 1) + ":" + new Date().getUTCMinutes() + ":" + new Date().getUTCSeconds()
         const currentDayOfTheWeek = document.querySelector('[data-testid="currentDayOfTheWeek"]');
         const currentUTCTime = document.querySelector('[data-testid="currentUTCTime"]');
         currentDayOfTheWeek.innerHTML = new Date().toLocaleDateString('en-US', { weekday: 'long' });
         currentUTCTime.innerHTML = time
+
+        const currentTimeZoneOffsetInMinutes = new Date().getTimezoneOffset();
+        const currentTimeZoneOffsetInMilliseconds = currentTimeZoneOffsetInMinutes * 60 * 1000;
+
+        console.log(currentTimeZoneOffsetInMilliseconds);
+
     </script>
 </body>
 </html>
