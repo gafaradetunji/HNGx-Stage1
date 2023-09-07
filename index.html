@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Page Creation with Specific Elements</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10%;
+        }
+        .img{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div>
+            <h1>Slack Name:</h1>
+            <h2 data-testid="slackUserName">Akinsemoyin Abdul Gafar Adetunji</h2>
+        </div>
+        <div>
+            <h1>Slack Display Picture:</h1>
+            <p><img src="./image/slack-image.jpg" alt="Zest" data-testid="slackDisplayImage" class="img"/></p>
+        </div>
+        <div>
+            <h1>Current Day of the Week:</h1>
+            <h2 data-testid="currentDayOfTheWeek">Monday</h2>
+        </div>
+        <div>
+            <h1>Current UTC Time:</h1>
+            <h2 data-testid="currentUTCTime">Monday</h2>
+        </div>
+        <div>
+            <h1>Track:</h1>
+            <h2 data-testid="myTrack">Frontend</h2>
+        </div>
+        <div>
+            <h1>GitHub URL:</h1>
+            <h2 data-testid="githubURL"><a href="https://github.com/gafaradetunji/HNGx-Stage1.git" >My Github URL</h2>
+        </div>
+    </section>
+    <script>
+        const time = (new Date().getUTCHours() + 1) + ":" + new Date().getUTCMinutes() + ":" + new Date().getUTCSeconds() + ":" + new Date().getUTCSeconds()
+        const currentDayOfTheWeek = document.querySelector('[data-testid="currentDayOfTheWeek"]');
+        const currentUTCTime = document.querySelector('[data-testid="currentUTCTime"]');
+        currentDayOfTheWeek.innerHTML = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+        currentUTCTime.innerHTML = time
+    </script>
+</body>
+</html>
